@@ -55,6 +55,17 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<PostDto> getPostsByCategory(Long categoryId) {
+       if(!(categoryRepository.existsById(categoryId))) {
+           throw new ResourceNotFoundException("Category", "id", categoryId);
+       }
+        List<Post> postsByCategory = postRepository.findByCategoryId(categoryId);
+        return postsByCategory.stream()
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public PostResponse getPostsByPage(int pageNo, int pageSize, String sortBy, String sortDir) {
 
         Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ?

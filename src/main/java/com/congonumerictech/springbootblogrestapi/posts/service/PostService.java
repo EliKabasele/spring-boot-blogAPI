@@ -10,6 +10,8 @@ public interface PostService {
 
     List<PostDto> getAllPosts();
 
+    List<PostDto> getPostsByCategory(Long categoryId);
+
     PostResponse getPostsByPage(int pageNo, int pageSize, String sortBy, String sortDir);
 
     PostDto getPostById(Long id);
