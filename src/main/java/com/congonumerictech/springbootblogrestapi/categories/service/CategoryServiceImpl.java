@@ -5,12 +5,9 @@ import com.congonumerictech.springbootblogrestapi.categories.entity.Category;
 import com.congonumerictech.springbootblogrestapi.categories.repository.CategoryRepository;
 import com.congonumerictech.springbootblogrestapi.exception.ResourceNotFoundException;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
